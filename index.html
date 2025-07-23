@@ -3,8 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>💚마츠유💛</title>
-  <script src="js/password.js"></script>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: sans-serif;
+      background: #fffef6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    input, button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #e0f3e0;
+      cursor: pointer;
+      border: none;
+    }
+  </style>
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === "0112") {
+        window.location.href = "home.html";
+      } else {
+        alert("비밀번호가 틀렸습니다.");
+      }
+    }
+  </script>
 </head>
 <body>
   <h2>비밀번호를 입력해주세요</h2>
