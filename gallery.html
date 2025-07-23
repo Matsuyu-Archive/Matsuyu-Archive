@@ -1,1 +1,69 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Gallery</title></head><body><h1>Gallery Page</h1></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>📷 Gallery</title>
+  <style>
+    body {
+      font-family: 'Gowun Batang', serif;
+      background: linear-gradient(to bottom, #fff6d1, #ffe0cf);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    .slider {
+      display: flex;
+      overflow: hidden;
+      max-width: 600px;
+      border-radius: 1rem;
+    }
+    .slider img {
+      width: 600px;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+    .controls {
+      margin-top: 1rem;
+    }
+    .controls button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>📷 이미지 갤러리</h2>
+  <div class="slider">
+    <img id="slide" src="assets/images/main-visual.png" alt="Gallery Image">
+  </div>
+  <div class="controls">
+    <button onclick="prev()">◀</button>
+    <button onclick="next()">▶</button>
+  </div>
+  <script>
+    const images = [
+      "assets/images/main-visual.png",
+      "assets/images/main-visual.png",
+      "assets/images/main-visual.png"
+    ];
+    let current = 0;
+    function show() {
+      document.getElementById('slide').src = images[current];
+    }
+    function prev() {
+      current = (current - 1 + images.length) % images.length;
+      show();
+    }
+    function next() {
+      current = (current + 1) % images.length;
+      show();
+    }
+  </script>
+</body>
+</html>
