@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matsuyu Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Zen Maru Gothic', sans-serif;
+    }
+    body, html {
+      margin: 0; padding: 0;
+      height: 100vh;
+      background-color: #fff5e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      display: flex;
+      max-width: 960px;
+      width: 90%;
+      height: 80vh;
+      background: #fffaf2;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    nav.menu {
+      width: 180px;
+      background: #f4e5bf;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      box-sizing: border-box;
+    }
+    nav.menu a {
+      padding: 0.6rem 1.2rem;
+      border-radius: 1rem;
+      background: #f0d87b;
+      text-decoration: none;
+      color: #4a3f25;
+      font-weight: 600;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    nav.menu a:hover {
+      background: #e0c96b;
+    }
+    main.content {
+      flex-grow: 1;
+      padding: 2rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-align: center;
+      position: relative;
+    }
+    main.content .title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #333;
+    }
+    main.content img {
+      max-width: 100%;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    main.content .dday {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    audio#bgm {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 200px;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      background: #f0d87b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="menu">
+      <a href="gallery.html">갤러리</a>
+      <a href="logs.html">로그</a>
+      <a href="profile.html">프로필</a>
+      <a href="bgm.html">BGM</a>
+    </nav>
+    <main class="content">
+      <div class="title">ようこそ、Matsuyu Archiveへ</div>
+      <img src="main-visual.png" alt="Main Visual" />
+      <div class="dday">2024.01.12 - D+<span id="dday-count">0</span></div>
+      <audio id="bgm" controls autoplay loop>
+        <source src="プラネタリウムガーデン.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </main>
+  </div>
+  <script>
+    const ddayTarget = new Date('2024-01-12');
+    function updateDday() {
+      const now = new Date();
+      const diff = now - ddayTarget;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById('dday-count').textContent = days;
+    }
+    updateDday();
+    setInterval(updateDday, 60 * 60 * 1000);
+  </script>
+</body>
+</html>
