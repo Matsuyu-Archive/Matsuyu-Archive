@@ -2,57 +2,14 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>BGM 플레이어</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #fffef6;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: sans-serif;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 0.5em 0;
-      cursor: pointer;
-      color: #007b7b;
-    }
-    audio {
-      margin-top: 1em;
-    }
-  </style>
-  <script>
-    const playlist = [
-      { title: "봄의 기억", file: "bgm1.mp3" },
-      { title: "달빛 아래", file: "bgm2.mp3" },
-      { title: "전투 테마", file: "bgm3.mp3" }
-    ];
-    let audio;
-    function loadPlaylist() {
-      const list = document.getElementById("playlist");
-      audio = document.getElementById("audio");
-      playlist.forEach((track) => {
-        const item = document.createElement("li");
-        item.textContent = track.title;
-        item.onclick = () => {
-          audio.src = "assets/bgm/" + track.file;
-          audio.play();
-        };
-        list.appendChild(item);
-      });
-    }
-    window.onload = loadPlaylist;
-  </script>
+  <title>🎧 BGM</title>
 </head>
 <body>
-  <h1>🎧 마츠유 BGM</h1>
-  <ul id="playlist"></ul>
-  <audio id="audio" controls></audio>
+  <h2>🎧 BGM Playlist</h2>
+  <ul>
+    <li><audio controls src="assets/bgm/a_beautiful_sunset.mp3"></audio></li>
+    <li><audio controls src="assets/bgm/I_will_always.mp3"></audio></li>
+    <li><audio controls src="assets/bgm/Luculia.mp3"></audio></li>
+  </ul>
 </body>
 </html>
