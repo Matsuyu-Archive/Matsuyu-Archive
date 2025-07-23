@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>비밀번호 입력</title>
+  <title>💚마츠유💛</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
@@ -23,69 +24,119 @@
       align-items: center;
     }
 
-    .container {
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 3rem;
+    .layout {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.85);
       border-radius: 2rem;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 90%;
+      max-width: 1100px;
+      height: 650px;
+    }
+
+    .sidebar {
+      background-color: #fdfaf4;
+      padding: 2rem 1.5rem;
+      border-right: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 180px;
+      gap: 1.5rem;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #5a7d69;
+      font-size: 1rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid #d9d9d9;
+      border-radius: 1rem;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      background-color: #f7f7f7;
+      color: #444;
+    }
+
+    .main {
+      flex: 1;
+      padding: 2rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
       text-align: center;
     }
 
-    h2 {
+    .main-top {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .widget {
+      background-color: #fffef6;
+      border: 1px solid #e0d9c9;
+      padding: 0.6rem 1rem;
+      border-radius: 1rem;
+      font-size: 0.85rem;
+      color: #666;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    }
+
+    .main-visual {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+
+    h1 {
+      margin-top: 1rem;
       font-size: 1.5rem;
       color: #444;
-      margin-bottom: 1.5rem;
     }
 
-    input[type="password"] {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 1rem;
-      width: 200px;
-      margin-bottom: 1rem;
-    }
-
-    button {
-      padding: 0.5rem 1.2rem;
-      background-color: #f0d87b;
-      border: none;
-      border-radius: 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #e0c96b;
-    }
-
-    .error {
+    .audio-player {
       margin-top: 1rem;
-      color: red;
-      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>비밀번호를 입력해주세요</h2>
-    <input type="password" id="passwordInput" placeholder="비밀번호" autofocus>
-    <br>
-    <button onclick="checkPassword()">입장</button>
-    <div class="error" id="errorMessage"></div>
+  <div class="layout">
+    <div class="sidebar">
+      <a href="gallery.html">Gallery</a>
+      <a href="logs.html">Logs</a>
+      <a href="profile.html">Profile</a>
+    </div>
+    <div class="main">
+      <div class="main-top">
+        <div></div>
+        <div class="widget" id="dday-widget">2024.01.12 - D+558</div>
+      </div>
+      <img src="assets/img/main-visual.png" alt="Main Visual" class="main-visual">
+      <h1>내가 당신을 잡아줄 순 없어?</h1>
+      <div class="audio-player">
+        <audio id="bgm" controls autoplay loop>
+          <source src="assets/bgm/Luculia.mp3" type="audio/mp3">
+          브라우저가 오디오 태그를 지원하지 않습니다.
+        </audio>
+      </div>
+    </div>
   </div>
 
   <script>
-    function checkPassword() {
-      const password = document.getElementById('passwordInput').value;
-      const correctPassword = "0112";
-      if (password === correctPassword) {
-        window.location.href = "main.html";
-      } else {
-        document.getElementById('errorMessage').textContent = "비밀번호가 틀렸습니다.";
-      }
-    }
+    const baseDate = new Date("2024-01-12");
+    const today = new Date();
+    const diff = Math.floor((today - baseDate) / (1000 * 60 * 60 * 24));
+    document.getElementById("dday-widget").textContent = `2024.01.12 - D+${diff}`;
   </script>
 </body>
 </html>
